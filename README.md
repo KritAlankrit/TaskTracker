@@ -80,6 +80,7 @@ Open http://localhost:3000 in your browser.
 
 ---
 
-### Live Demo
+## Live Demo
 
-[Live Site](https://task-tracker-phi-pied.vercel.app/)
+[Click here to view the live site](https://task-tracker-phi-pied.vercel.app/)
+
