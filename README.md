@@ -72,8 +72,14 @@ Tasks are sorted by:
 Clone the project and run it locally:
 
 ```bash
-git clone https://github.com/your-username/TaskTracker.git
+git clone https://github.com/KritAlankrit/TaskTracker.git
 cd TaskTracker
 npm install
 npm run dev
 Open http://localhost:3000 in your browser.
+
+---
+
+### Live Demo
+
+[Live Site](https://task-tracker-phi-pied.vercel.app/)
