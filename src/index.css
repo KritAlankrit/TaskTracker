@@ -1,0 +1,197 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Task Management App Design System */
+
+@layer base {
+  :root {
+    /* Core brand colors - productivity theme */
+    --background: 215 25% 97%;
+    --foreground: 215 25% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 12%;
+
+    /* Primary - Productive Blue */
+    --primary: 210 75% 45%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 210 75% 55%;
+    --primary-dark: 210 75% 35%;
+
+    /* Secondary - Success Green */
+    --secondary: 142 70% 45%;
+    --secondary-foreground: 0 0% 100%;
+
+    /* Muted colors */
+    --muted: 215 15% 94%;
+    --muted-foreground: 215 15% 45%;
+
+    /* Accent - Warm accent */
+    --accent: 45 100% 60%;
+    --accent-foreground: 215 25% 12%;
+
+    /* Status colors */
+    --success: 142 70% 45%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 95% 50%;
+    --warning-foreground: 0 0% 100%;
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* UI elements */
+    --border: 215 20% 88%;
+    --input: 215 20% 94%;
+    --ring: 210 75% 45%;
+
+    --radius: 0.75rem;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-light)));
+    --gradient-secondary: linear-gradient(135deg, hsl(var(--secondary)), hsl(142 70% 55%));
+    --gradient-background: linear-gradient(135deg, hsl(215 25% 97%), hsl(215 30% 95%));
+    --gradient-card: linear-gradient(135deg, hsl(0 0% 100%), hsl(215 20% 98%));
+
+    /* Shadows */
+    --shadow-sm: 0 2px 4px hsl(215 25% 12% / 0.05);
+    --shadow-md: 0 4px 12px hsl(215 25% 12% / 0.1);
+    --shadow-lg: 0 8px 25px hsl(215 25% 12% / 0.15);
+    --shadow-primary: 0 4px 20px hsl(var(--primary) / 0.25);
+
+    /* Transitions */
+    --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    background: hsl(var(--background));
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+
+  .task-card {
+  @apply text-card-foreground;
+}
+
+  /* Task status animations */
+  .task-complete {
+    @apply transition-all duration-300 opacity-70;
+  }
+  
+  .task-complete .task-title {
+    @apply line-through;
+  }
+
+  /* Button variants */
+  .btn-primary {
+    background: var(--gradient-primary);
+    @apply text-primary-foreground shadow-md hover:shadow-lg transition-all duration-200;
+  }
+
+  .btn-secondary {
+    background: var(--gradient-secondary);
+    @apply text-secondary-foreground shadow-md hover:shadow-lg transition-all duration-200;
+  }
+
+  /* Card hover effects */
+  .task-card {
+    @apply bg-card border border-border rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-200;
+    background: hsl(var(--card));
+  }
+
+  .task-card:hover {
+    transform: translateY(-2px);
+  }
+
+  /* Filter tabs */
+  .filter-tab {
+    @apply px-4 py-2 rounded-lg font-medium transition-all duration-200;
+  }
+
+  .filter-tab.active {
+    background: var(--gradient-primary);
+    @apply text-primary-foreground shadow-md;
+  }
+
+  .filter-tab:not(.active) {
+    @apply bg-muted text-muted-foreground hover:bg-muted/80;
+  }
+
+  /* Form inputs */
+  .input-field {
+    @apply bg-input border border-border rounded-lg px-4 py-2 text-sm text-foreground placeholder:text-muted-foreground shadow-sm focus:ring-2 focus:ring-ring;
+  transition: var(--transition-fast);
+  }
+
+  .input-field:focus {
+    @apply ring-2 ring-ring border-ring;
+  }
+}
